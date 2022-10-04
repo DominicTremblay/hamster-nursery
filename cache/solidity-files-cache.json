@@ -2,8 +2,8 @@
   "_format": "hh-sol-cache-2",
   "files": {
     "/home/labber/lhl/projects/hamster_nursery/contracts/HamsterNursery.sol": {
-      "lastModificationDate": 1664859502238,
-      "contentHash": "30ec1162322507bfa80183b1c92f6588",
+      "lastModificationDate": 1664896018231,
+      "contentHash": "3ff366e800845112dccf01c2eeb115bc",
       "sourceName": "contracts/HamsterNursery.sol",
       "solcConfig": {
         "version": "0.8.17",
