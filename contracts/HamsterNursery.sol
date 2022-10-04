@@ -38,6 +38,11 @@ contract HamsterNursery {
   // declare a dynamic array of hamsters
   Hamster[] public hamsters;
 
+  constructor() {
+    createHamster('Bubbles', ColorType.brown, PatternType.banded);
+    createHamster('Fluffy', ColorType.cream, PatternType.cinnamon);
+  }
+
   function getCount() public view returns (uint) {
       return hamsters.length;
   }

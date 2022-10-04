@@ -19,6 +19,10 @@ describe('HamsterNursery', () => {
       2,
       3
     );
-    expect(await hamsterNursery.getCount()).to.be.equal(1);
+    expect(await hamsterNursery.getCount()).to.be.equal(3);
+  });
+
+  it('creates 2 hamsters when deployed', async () =>{
+    expect(await hamsterNursery.getCount()).to.be.equal(2);
   });
 });
