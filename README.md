@@ -443,6 +443,26 @@ const hamsterList = hamsters.map((hamsterArr) => < li key = {
         );
 ```
 
+vii. Get the Metamask Accounts
+
+We would probably need to accounts from Metamask to continue building the app. We can get account with a request:
+
+* we store the accounts in the state
+* we create a `getAccounts` function that will perform the request and update the state
+* we can call the function from within the useEffect `getAccounts().catch((err) => console.log(`Error: ${err.msg}`));`
+
+```js
+  const [accounts, setAccounts] = useState([]);
+
+  const getAccounts = async () => {
+      const accounts = await window.ethereum.request({
+          method: 'eth_requestAccounts',
+      });
+
+      setAccounts(accounts);
+  };
+```
+
 ## 3. Running the project
 
 i. Clone the project and install the dependencies
@@ -454,7 +474,7 @@ iii. Deploy the contrat. In an new terminal window, type
 
 > `npx hardhat run --network localhost scripts/01_deploy.js`
 
-- Get the address of the contract from the hardhat node
+* Get the address of the contract from the hardhat node
 
 iv. Create `.env` file and add the contract address
 
@@ -467,3 +487,25 @@ v. Running the tests
 vi. Run the Front-End
 
 > `npm start`
+
+## 4. Configuring MetaMask
+
+i. Get the MetaMask browser extension at https://metamask.io/
+ii. In `Settings > Add network` insert the following values
+
+> Network name: Localhost:8545
+> New RPC URL: http://localhost:8545
+> Chain ID: 1331
+> Currency Symbol: ETH
+
+iii. Make sure you're on the localhost:8545 and select `Import account` from the menu
+
+> Enter the private key from the first account on the local Hardhat node network
+
+## Play with Solidity
+
+i. Make sure to visit the following tutorial to learn more Solidity!
+
+- [Crypto Zombies](https://cryptozombies.io/)
+- [Ethernaut](https://ethernaut.openzeppelin.com/)
+

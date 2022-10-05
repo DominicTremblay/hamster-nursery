@@ -5,6 +5,15 @@ import './App.css';
 
 function App() {
   const [hamsters, setHamsters] = useState([]);
+  const [accounts, setAccounts] = useState([]);
+
+  const getAccounts = async () => {
+    const accounts = await window.ethereum.request({
+      method: 'eth_requestAccounts',
+    });
+
+    setAccounts(accounts);
+  };
 
   const getHamsters = async (contract) => {
     const hamsters = await contract.getHamsters();
@@ -12,6 +21,8 @@ function App() {
   };
 
   useEffect(() => {
+    getAccounts().catch((err) => console.log(`Error: ${err.msg}`));
+
     // connect to the provider
     const provider = new ethers.providers.Web3Provider(window.ethereum);
 
@@ -26,7 +37,9 @@ function App() {
     getHamsters(hamsterNursery);
   }, []);
 
-  const hamsterList = hamsters.map((hamsterArr) => <li key={hamsterArr[0]}>{hamsterArr[0]}</li>);
+  const hamsterList = hamsters.map((hamsterArr) => (
+    <li key={hamsterArr[0]}>{hamsterArr[0]}</li>
+  ));
 
   return (
     <div className="App">
