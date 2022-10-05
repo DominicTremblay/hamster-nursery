@@ -442,3 +442,28 @@ const hamsterList = hamsters.map((hamsterArr) => < li key = {
             /div>
         );
 ```
+
+## 3. Running the project
+
+i. Clone the project and install the dependencies
+ii. Run the hardhat local blockchain. Type the following in a separate window
+
+> `npx hardhat node`
+
+iii. Deploy the contrat. In an new terminal window, type
+
+> `npx hardhat run --network localhost scripts/01_deploy.js`
+
+- Get the address of the contract from the hardhat node
+
+iv. Create `.env` file and add the contract address
+
+> `REACT_APP_CONTRACT_ADDRESS=<your contract address>`
+
+v. Running the tests
+
+> `npx hardhat test`
+
+vi. Run the Front-End
+
+> `npm start`
