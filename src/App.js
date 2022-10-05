@@ -1,9 +1,16 @@
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { ethers } from 'ethers';
 import HAMSTER_NURSERY_ABI from './abis/HamsterNursery.json';
 import './App.css';
 
 function App() {
+  const [hamsters, setHamsters] = useState([]);
+
+  const getHamsters = async (contract) => {
+    const hamsters = await contract.getHamsters();
+    setHamsters(hamsters);
+  };
+
   useEffect(() => {
     // connect to the provider
     const provider = new ethers.providers.Web3Provider(window.ethereum);
@@ -16,6 +23,7 @@ function App() {
     );
 
     console.log('Contract Address:', hamsterNursery.address);
+    getHamsters(hamsterNursery);
   }, []);
 
   return (
