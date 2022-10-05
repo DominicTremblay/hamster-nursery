@@ -26,9 +26,13 @@ function App() {
     getHamsters(hamsterNursery);
   }, []);
 
+  const hamsterList = hamsters.map((hamsterArr) => <li key={hamsterArr[0]}>{hamsterArr[0]}</li>);
+
   return (
     <div className="App">
       <h1>Hamster Nursery</h1>
+
+      {hamsterList}
     </div>
   );
 }
