@@ -502,6 +502,12 @@ iii. Make sure you're on the localhost:8545 and select `Import account` from the
 
 > Enter the private key from the first account on the local Hardhat node network
 
+##. 5 Gas Fee
+
+- You can have an estimate of the gas fee when you deploy your contract when running the test suite with the Hardhat Gas Reporter
+
+> [Hardhat Gas Reporter](https://www.npmjs.com/package/hardhat-gas-reporter)
+
 ## Play with Solidity
 
 i. Make sure to visit the following tutorial to learn more Solidity!
